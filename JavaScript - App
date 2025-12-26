@@ -1,0 +1,27 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import AddTask from './pages/AddTask';
+import { TaskProvider } from './context/TaskContext';
+import './App.css';
+
+const App = () => {
+  return (
+    <Router>
+      <TaskProvider>
+        <div className="app-container">
+          <h1 className="main-title">Gerenciador de Tarefas</h1>
+          <div className="card">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/add-task" element={<AddTask />} />
+              <Route path="/edit-task/:id" element={<AddTask />} />
+            </Routes>
+          </div>
+        </div>
+      </TaskProvider>
+    </Router>
+  );
+};
+
+export default App;
